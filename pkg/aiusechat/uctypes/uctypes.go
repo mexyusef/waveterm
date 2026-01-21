@@ -31,6 +31,10 @@ const (
 	AIProvider_Azure       = "azure"
 	AIProvider_AzureLegacy = "azure-legacy"
 	AIProvider_Custom      = "custom"
+	AIProvider_Cerebras    = "cerebras"
+	AIProvider_SambaNova   = "sambanova"
+	AIProvider_Hyperbolic  = "hyperbolic"
+	AIProvider_Groq        = "groq"
 )
 
 type UseChatRequest struct {

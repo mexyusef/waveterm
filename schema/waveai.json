@@ -24,7 +24,11 @@
             "openai",
             "azure",
             "azure-legacy",
-            "custom"
+            "custom",
+            "cerebras",
+            "sambanova",
+            "hyperbolic",
+            "groq"
           ]
         },
         "ai:apitype": {

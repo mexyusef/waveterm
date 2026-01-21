@@ -36,5 +36,75 @@
         "ai:capabilities": ["tools", "images", "pdfs"],
         "waveai:premium": true,
 		"ai:switchcompat": ["wavecloud"]
+    },
+    "cerebras@quick": {
+        "display:name": "Cerebras",
+        "display:order": 10,
+        "display:icon": "cpu",
+        "display:description": "Cerebras fast inference (gpt-oss-120b)",
+        "ai:provider": "cerebras",
+        "ai:apitype": "openai-chat",
+        "ai:model": "gpt-oss-120b",
+        "ai:capabilities": ["tools"]
+    },
+    "sambanova@quick": {
+        "display:name": "SambaNova",
+        "display:order": 11,
+        "display:icon": "zap",
+        "display:description": "SambaNova (Meta-Llama-3.3-70B-Instruct)",
+        "ai:provider": "sambanova",
+        "ai:apitype": "openai-chat",
+        "ai:model": "Meta-Llama-3.3-70B-Instruct",
+        "ai:capabilities": ["tools", "images", "pdfs"]
+    },
+    "sambanova@vision": {
+        "display:name": "SambaNova Vision",
+        "display:order": 12,
+        "display:icon": "eye",
+        "display:description": "SambaNova with vision (Llama-4-Maverick)",
+        "ai:provider": "sambanova",
+        "ai:apitype": "openai-chat",
+        "ai:model": "Llama-4-Maverick-17B-128E-Instruct",
+        "ai:capabilities": ["tools", "images", "pdfs"]
+    },
+    "hyperbolic@quick": {
+        "display:name": "Hyperbolic",
+        "display:order": 13,
+        "display:icon": "lightning",
+        "display:description": "Hyperbolic (DeepSeek-R1)",
+        "ai:provider": "hyperbolic",
+        "ai:apitype": "openai-chat",
+        "ai:model": "deepseek-ai/DeepSeek-R1-0528",
+        "ai:capabilities": ["tools", "images", "pdfs"]
+    },
+    "hyperbolic@vision": {
+        "display:name": "Hyperbolic Vision",
+        "display:order": 14,
+        "display:icon": "eye",
+        "display:description": "Hyperbolic with vision (NVIDIA Nemotron)",
+        "ai:provider": "hyperbolic",
+        "ai:apitype": "openai-chat",
+        "ai:model": "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL-BF16",
+        "ai:capabilities": ["tools", "images", "pdfs"]
+    },
+    "groq@quick": {
+        "display:name": "Groq",
+        "display:order": 15,
+        "display:icon": "gauge",
+        "display:description": "Groq fast inference (Llama 3.3 70B)",
+        "ai:provider": "groq",
+        "ai:apitype": "openai-chat",
+        "ai:model": "llama-3.3-70b-versatile",
+        "ai:capabilities": ["tools", "images", "pdfs"]
+    },
+    "groq@vision": {
+        "display:name": "Groq Vision",
+        "display:order": 16,
+        "display:icon": "eye",
+        "display:description": "Groq with vision (Llama 4 Scout)",
+        "ai:provider": "groq",
+        "ai:apitype": "openai-chat",
+        "ai:model": "meta-llama/llama-4-scout-17b-16e-instruct",
+        "ai:capabilities": ["tools", "images", "pdfs"]
     }
 }

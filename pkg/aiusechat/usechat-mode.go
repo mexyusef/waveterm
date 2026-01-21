@@ -26,12 +26,21 @@ const (
 	AzureChatEndpointTemplate      = "https://%s.openai.azure.com/openai/v1/chat/completions"
 	GoogleGeminiEndpointTemplate   = "https://generativelanguage.googleapis.com/v1beta/models/%s:streamGenerateContent"
 
+	CerebrasChatEndpoint  = "https://api.cerebras.ai/v1/chat/completions"
+	SambaNovaChatEndpoint = "https://api.sambanova.ai/v1/chat/completions"
+	HyperbolicChatEndpoint = "https://api.hyperbolic.xyz/v1/chat/completions"
+	GroqChatEndpoint      = "https://api.groq.com/openai/v1/chat/completions"
+
 	AzureLegacyDefaultAPIVersion = "2025-04-01-preview"
 
 	OpenAIAPITokenSecretName      = "OPENAI_KEY"
 	OpenRouterAPITokenSecretName  = "OPENROUTER_KEY"
 	AzureOpenAIAPITokenSecretName = "AZURE_OPENAI_KEY"
 	GoogleAIAPITokenSecretName    = "GOOGLE_AI_KEY"
+	CerebrasAPITokenSecretName    = "CEREBRAS_KEY"
+	SambaNovaAPITokenSecretName   = "SAMBANOVA_KEY"
+	HyperbolicAPITokenSecretName  = "HYPERBOLIC_KEY"
+	GroqAPITokenSecretName        = "GROQ_KEY"
 )
 
 func resolveAIMode(requestedMode string, premium bool) (string, *wconfig.AIModeConfigType, error) {
@@ -142,6 +151,62 @@ func applyProviderDefaults(config *wconfig.AIModeConfigType) {
 		}
 		if config.APITokenSecretName == "" {
 			config.APITokenSecretName = GoogleAIAPITokenSecretName
+		}
+		if len(config.Capabilities) == 0 {
+			config.Capabilities = []string{uctypes.AICapabilityTools, uctypes.AICapabilityImages, uctypes.AICapabilityPdfs}
+		}
+	}
+	if config.Provider == uctypes.AIProvider_Cerebras {
+		if config.APIType == "" {
+			config.APIType = uctypes.APIType_OpenAIChat
+		}
+		if config.Endpoint == "" {
+			config.Endpoint = CerebrasChatEndpoint
+		}
+		if config.APITokenSecretName == "" {
+			config.APITokenSecretName = CerebrasAPITokenSecretName
+		}
+		if len(config.Capabilities) == 0 {
+			config.Capabilities = []string{uctypes.AICapabilityTools}
+		}
+	}
+	if config.Provider == uctypes.AIProvider_SambaNova {
+		if config.APIType == "" {
+			config.APIType = uctypes.APIType_OpenAIChat
+		}
+		if config.Endpoint == "" {
+			config.Endpoint = SambaNovaChatEndpoint
+		}
+		if config.APITokenSecretName == "" {
+			config.APITokenSecretName = SambaNovaAPITokenSecretName
+		}
+		if len(config.Capabilities) == 0 {
+			config.Capabilities = []string{uctypes.AICapabilityTools, uctypes.AICapabilityImages, uctypes.AICapabilityPdfs}
+		}
+	}
+	if config.Provider == uctypes.AIProvider_Hyperbolic {
+		if config.APIType == "" {
+			config.APIType = uctypes.APIType_OpenAIChat
+		}
+		if config.Endpoint == "" {
+			config.Endpoint = HyperbolicChatEndpoint
+		}
+		if config.APITokenSecretName == "" {
+			config.APITokenSecretName = HyperbolicAPITokenSecretName
+		}
+		if len(config.Capabilities) == 0 {
+			config.Capabilities = []string{uctypes.AICapabilityTools, uctypes.AICapabilityImages, uctypes.AICapabilityPdfs}
+		}
+	}
+	if config.Provider == uctypes.AIProvider_Groq {
+		if config.APIType == "" {
+			config.APIType = uctypes.APIType_OpenAIChat
+		}
+		if config.Endpoint == "" {
+			config.Endpoint = GroqChatEndpoint
+		}
+		if config.APITokenSecretName == "" {
+			config.APITokenSecretName = GroqAPITokenSecretName
 		}
 		if len(config.Capabilities) == 0 {
 			config.Capabilities = []string{uctypes.AICapabilityTools, uctypes.AICapabilityImages, uctypes.AICapabilityPdfs}
